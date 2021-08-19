@@ -1,41 +1,49 @@
-import 'package:bmicalculator/helpers/color/color.dart';
 import 'package:flutter/material.dart';
 
 class BottomButton extends StatelessWidget {
-  BottomButton({@required this.onTap, @required this.buttonTitle, this.colour});
+  BottomButton(
+      {@required this.onTap,
+      @required this.buttonTitle,
+      @required this.colour,
+      @required this.style,
+      @required this.width,
+      this.height});
 
   final Function onTap;
   final String buttonTitle;
   final Color colour;
+  final TextStyle style;
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 35,
+        height: height,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: Offset(0, 3), // changes position of shadow
+                spreadRadius: -10,
+                blurRadius: 17,
+                offset: Offset(-5, -5),
+                color: Color.fromRGBO(239, 239, 239, 1),
+              ),
+              BoxShadow(
+                spreadRadius: -2,
+                blurRadius: 10,
+                offset: Offset(7, 7),
+                color: Color.fromRGBO(206, 220, 226, 1),
               ),
             ],
-            color: AppColor.buttonbackgroundcolor),
+            color: colour),
         child: Center(
-          child: Text(
-            buttonTitle,
-            style: TextStyle(
-              fontSize: 18,
-              color: AppColor.backgroundcolor,
-            ),
-          ),
+          child: Text(buttonTitle, style: style),
         ),
         margin: EdgeInsets.only(top: 15.0, bottom: 15, right: 15, left: 15),
-        width: double.infinity,
+        width: width,
       ),
     );
   }
