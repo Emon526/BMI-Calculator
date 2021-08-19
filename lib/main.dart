@@ -1,4 +1,5 @@
 import 'package:bmicalculator/screens/home/homescreen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +13,11 @@ void main() {
           name: '/home',
           page: () => HomeScreen(),
         ),
+        // GetPage(
+        //   name: '/result',
+        //   page: () => ResultsPage(),
+        //   binding: BindingStorageController(),
+        // ),
       ],
     ),
   );

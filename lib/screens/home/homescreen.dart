@@ -9,6 +9,7 @@ import 'package:bmicalculator/screens/result/result_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,50 +24,55 @@ class HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: HomeAppBar.primaryAppBar("BMI Calculator"),
       body: SafeArea(
         child: Container(
+          height: size.height,
+          width: size.width,
           margin: EdgeInsets.only(right: 10, left: 10),
           child: Column(
             // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               GenderCard(),
               Container(
-                height: 480,
+                height: size.height * .68,
                 child: Row(
                   children: [
                     Expanded(
                       child: ReusableCard(
+                        onPress: () => {},
                         cardChild: Container(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
+                              SizedBox(height: size.height * 0.015),
                               Text(
                                 'Height',
                                 style: TextStyle(
                                   color: AppColor.unselectedTextColor,
-                                  fontSize: 18,
+                                  fontSize: size.width * 0.05,
                                 ),
                               ),
 
                               //for slider
                               Container(
-                                height: 400,
+                                height: size.height * 0.59,
                                 child: SfSlider.vertical(
                                   value: height.toDouble(),
-                                  min: 110.0,
-                                  max: 250.0,
+                                  min: 0.0,
+                                  max: 220,
                                   interval: 20,
                                   showTicks: true,
                                   showLabels: true,
                                   activeColor: AppColor.buttonbackgroundcolor,
-                                  inactiveColor: Colors.red,
+                                  inactiveColor: AppColor.unselectedTextColor
+                                      .withOpacity(0.2),
                                   overlayShape: SfOverlayShape(),
                                   thumbShape: SfThumbShape(),
                                   labelPlacement: LabelPlacement.betweenTicks,
-
-                                  // enableTooltip: true,
+                                  enableTooltip: true,
                                   minorTicksPerInterval: 3,
                                   onChanged: (dynamic newValue) {
                                     setState(() {
@@ -88,98 +94,102 @@ class HomeScreenState extends State<HomeScreen> {
                         children: <Widget>[
                           ReusableCard(
                             colour: AppColor.backgroundcolor,
-                            cardChild: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                SizedBox(height: 20),
-                                Text(
-                                  'Weight',
-                                  style: TextStyle(
+                            cardChild: Container(
+                              height: size.height * .30,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  SizedBox(height: size.height * 0.01),
+                                  Text(
+                                    'Weight',
+                                    style: TextStyle(
                                       color: AppColor.unselectedTextColor,
-                                      fontSize: 18),
-                                ),
-                                SizedBox(height: 20),
-                                Text(
-                                  weight.toString(),
-                                  style: TextStyle(
-                                      color: AppColor.unselectedTextColor,
-                                      fontSize: 50),
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    RoundIconButton(
-                                        icon: FontAwesomeIcons.plus,
+                                      fontSize: size.width * 0.05,
+                                    ),
+                                  ),
+                                  SizedBox(height: size.height * 0.04),
+                                  Text(
+                                    weight.toString(),
+                                    style: TextStyle(
+                                        color: AppColor.unselectedTextColor,
+                                        fontSize: 50),
+                                  ),
+                                  SizedBox(height: size.height * 0.04),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      RoundIconButton(
+                                          icon: FontAwesomeIcons.plus,
+                                          onPressed: () {
+                                            setState(() {
+                                              weight++;
+                                            });
+                                          }),
+                                      SizedBox(width: size.width * 0.04),
+                                      RoundIconButton(
+                                        icon: FontAwesomeIcons.minus,
                                         onPressed: () {
                                           setState(() {
-                                            weight++;
+                                            weight--;
                                           });
-                                        }),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    RoundIconButton(
-                                      icon: FontAwesomeIcons.minus,
-                                      onPressed: () {
-                                        setState(() {
-                                          weight--;
-                                        });
-                                      },
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 22),
-                              ],
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: size.height * 0.02),
+                                ],
+                              ),
                             ),
                           ),
                           ReusableCard(
                             colour: AppColor.backgroundcolor,
-                            cardChild: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                SizedBox(height: 20),
-                                Text(
-                                  'AGE',
-                                  style: TextStyle(
+                            cardChild: Container(
+                              height: size.height * 0.29,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  SizedBox(height: size.height * 0.01),
+                                  Text(
+                                    'Age',
+                                    style: TextStyle(
                                       color: AppColor.unselectedTextColor,
-                                      fontSize: 18),
-                                ),
-                                SizedBox(height: 20),
-                                Text(
-                                  age.toString(),
-                                  style: TextStyle(
-                                      color: AppColor.unselectedTextColor,
-                                      fontSize: 50),
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    RoundIconButton(
-                                        icon: FontAwesomeIcons.plus,
+                                      fontSize: size.width * 0.05,
+                                    ),
+                                  ),
+                                  SizedBox(height: size.height * 0.04),
+                                  Text(
+                                    age.toString(),
+                                    style: TextStyle(
+                                        color: AppColor.unselectedTextColor,
+                                        fontSize: 50),
+                                  ),
+                                  SizedBox(height: size.height * 0.04),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      RoundIconButton(
+                                          icon: FontAwesomeIcons.plus,
+                                          onPressed: () {
+                                            setState(() {
+                                              age++;
+                                            });
+                                          }),
+                                      SizedBox(width: size.width * 0.04),
+                                      RoundIconButton(
+                                        icon: FontAwesomeIcons.minus,
                                         onPressed: () {
-                                          setState(() {
-                                            age++;
-                                          });
-                                        }),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    RoundIconButton(
-                                      icon: FontAwesomeIcons.minus,
-                                      onPressed: () {
-                                        setState(
-                                          () {
-                                            age--;
-                                          },
-                                        );
-                                      },
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 22),
-                              ],
+                                          setState(
+                                            () {
+                                              age--;
+                                            },
+                                          );
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: size.height * 0.02),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -191,6 +201,10 @@ class HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: BottomButton(
                   buttonTitle: 'Let\'s Begin ',
+                  style: TextStyle(
+                    fontSize: size.width * 0.05,
+                    color: AppColor.backgroundcolor,
+                  ),
                   onTap: () {
                     BmiLogic calc = BmiLogic(height: height, weight: weight);
 
@@ -205,6 +219,7 @@ class HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
+                  width: size.width,
                   colour: AppColor.buttonbackgroundcolor,
                 ),
               ),

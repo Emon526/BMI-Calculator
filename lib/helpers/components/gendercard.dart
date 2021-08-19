@@ -1,6 +1,7 @@
 import 'package:bmicalculator/helpers/color/color.dart';
 import 'package:bmicalculator/helpers/components/reusable_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 enum Gender {
   male,
@@ -16,6 +17,7 @@ class _GenderCardState extends State<GenderCard> {
   Gender selectedGender;
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
       child: Row(
         children: <Widget>[
@@ -29,10 +31,8 @@ class _GenderCardState extends State<GenderCard> {
               colour: selectedGender == Gender.male
                   ? AppColor.buttonbackgroundcolor
                   : AppColor.backgroundcolor,
-
               cardChild: Container(
-                height: 50,
-                width: 50,
+                height: size.height * 0.068,
                 child: Center(
                   child: Text(
                     "Male",
@@ -40,14 +40,11 @@ class _GenderCardState extends State<GenderCard> {
                       color: selectedGender == Gender.male
                           ? AppColor.selectedTextColor
                           : AppColor.unselectedTextColor,
-                      fontSize: 16,
+                      fontSize: size.width * 0.05,
                     ),
                   ),
                 ),
               ),
-              // cardChild: Container(
-              //   child: Text("Male"),
-              // ),
             ),
           ),
           Expanded(
@@ -61,8 +58,7 @@ class _GenderCardState extends State<GenderCard> {
                   ? AppColor.buttonbackgroundcolor
                   : AppColor.backgroundcolor,
               cardChild: Container(
-                height: 50,
-                width: 50,
+                height: size.height * 0.068,
                 child: Center(
                   child: Text(
                     "Female",
@@ -70,7 +66,7 @@ class _GenderCardState extends State<GenderCard> {
                       color: selectedGender == Gender.female
                           ? AppColor.selectedTextColor
                           : AppColor.unselectedTextColor,
-                      fontSize: 16,
+                      fontSize: size.width * 0.05,
                     ),
                   ),
                 ),
