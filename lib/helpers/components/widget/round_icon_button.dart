@@ -1,4 +1,4 @@
-import 'package:bmicalculator/helpers/color/color.dart';
+import 'package:bmicalculator/helpers/color/constants.dart';
 import 'package:flutter/material.dart';
 
 class RoundIconButton extends StatelessWidget {
