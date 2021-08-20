@@ -1,15 +1,16 @@
-import 'package:bmicalculator/helpers/color/color.dart';
-import 'package:bmicalculator/helpers/components/appbar.dart';
-import 'package:bmicalculator/helpers/components/bottom_button.dart';
-import 'package:bmicalculator/helpers/components/gendercard.dart';
-import 'package:bmicalculator/helpers/components/reusable_card.dart';
-import 'package:bmicalculator/helpers/components/round_icon_button.dart';
+import 'package:bmicalculator/helpers/color/constants.dart';
+import 'package:bmicalculator/helpers/components/appbarbutton.dart';
+import 'package:bmicalculator/helpers/components/widget/bottom_button.dart';
+import 'package:bmicalculator/helpers/components/custom_appbar.dart';
+import 'package:bmicalculator/screens/home/widget/gendercard.dart';
+import 'package:bmicalculator/screens/home/widget/reusable_card.dart';
+import 'package:bmicalculator/helpers/components/widget/round_icon_button.dart';
 import 'package:bmicalculator/helpers/utils/calculate_bmi.dart';
+import 'package:bmicalculator/screens/info/infoscreen.dart';
 import 'package:bmicalculator/screens/result/result_screen.dart';
+import 'package:bmicalculator/screens/tips/tipsscreen.dart';
 import 'package:flutter/material.dart';
-
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,7 +27,30 @@ class HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: HomeAppBar.primaryAppBar("BMI Calculator"),
+      appBar: CustomAppBar(
+        onpressed: () {
+          print("pressed");
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => InfoScreen(),
+            ),
+          );
+        },
+        backgroundcolor: Colors.transparent,
+        title: 'BMI Calculator',
+        leading: AppBarButton(
+          icon: Icons.lightbulb,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => TipsScreen(),
+              ),
+            );
+          },
+        ),
+      ),
       body: SafeArea(
         child: Container(
           height: size.height,
@@ -35,13 +59,14 @@ class HomeScreenState extends State<HomeScreen> {
           child: Column(
             // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              GenderCard(),
+              Expanded(child: GenderCard()),
               Container(
                 height: size.height * .68,
                 child: Row(
                   children: [
                     Expanded(
                       child: ReusableCard(
+                        colour: AppColor.backgroundcolor,
                         onPress: () => {},
                         cardChild: Container(
                           child: Column(
@@ -84,7 +109,6 @@ class HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        colour: AppColor.backgroundcolor,
                       ),
                     ),
                     Expanded(
@@ -214,7 +238,7 @@ class HomeScreenState extends State<HomeScreen> {
                         builder: (context) => ResultsPage(
                           bmiResult: calc.calculateBMI(),
                           resultText: calc.getResult(),
-                          interpretation: calc.getInterpretation(),
+                          // interpretation: calc.getInterpretation(),
                         ),
                       ),
                     );

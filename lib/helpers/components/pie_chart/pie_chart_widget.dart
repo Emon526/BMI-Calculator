@@ -1,11 +1,13 @@
-import 'package:bmicalculator/helpers/color/color.dart';
-import 'package:bmicalculator/helpers/components/pie_chart/pie_chart_paint.dart';
+import 'package:bmicalculator/helpers/color/constants.dart';
+import 'package:bmicalculator/screens/home/pie_chart/pie_chart_paint.dart';
 import 'package:flutter/material.dart';
 
 class PieChartWidget extends StatelessWidget {
   final total;
   final used;
-  const PieChartWidget({@required this.total, @required this.used, Key key})
+  final String text;
+  const PieChartWidget(
+      {@required this.total, @required this.used, @required this.text, Key key})
       : super(key: key);
 
   @override
@@ -42,7 +44,7 @@ class PieChartWidget extends StatelessWidget {
                     child: CustomPaint(
                       child: Center(
                         child: Text(
-                          used.toString(),
+                          text,
                           style: TextStyle(
                             fontSize: constraints.maxWidth * 0.2,
                             // fontSize: 50,

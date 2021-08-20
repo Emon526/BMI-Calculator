@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+const kBlackColor = Colors.black;
 
 class AppColor {
   AppColor();
-
-  //lightmode color
 
   static const backgroundcolor = Color(0xffFFFFFF);
   static const buttonbackgroundcolor = Color(0xff57cadf);

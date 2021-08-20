@@ -1,5 +1,5 @@
-import 'package:bmicalculator/helpers/color/color.dart';
-import 'package:bmicalculator/helpers/components/reusable_card.dart';
+import 'package:bmicalculator/helpers/color/constants.dart';
+import 'package:bmicalculator/screens/home/widget/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
