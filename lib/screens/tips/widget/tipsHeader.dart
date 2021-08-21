@@ -1,6 +1,6 @@
 import 'package:bmicalculator/helpers/color/constants.dart';
+import 'package:bmicalculator/helpers/components/pie_chart/pie_chart_widget.dart';
 import 'package:bmicalculator/helpers/config/size_config.dart';
-import 'package:bmicalculator/screens/home/widget/pie_chart/pie_chart_widget.dart';
 
 import 'package:flutter/material.dart';
 

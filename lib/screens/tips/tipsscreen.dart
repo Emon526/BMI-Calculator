@@ -2,11 +2,11 @@ import 'package:bmicalculator/helpers/color/constants.dart';
 import 'package:bmicalculator/helpers/config/size_config.dart';
 import 'package:bmicalculator/helpers/components/appbarbutton.dart';
 import 'package:bmicalculator/helpers/components/custom_appbar.dart';
-import 'package:bmicalculator/screens/info/infoscreen.dart';
-
+import 'package:bmicalculator/screens/profile/profile.dart';
 import 'package:bmicalculator/screens/tips/widget/tipsHeader.dart';
 import 'package:bmicalculator/screens/tips/widget/tipsfooter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TipsScreen extends StatelessWidget {
   @override
@@ -20,7 +20,7 @@ class TipsScreen extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => InfoScreen(),
+              builder: (context) => Profile(),
             ),
           );
         },
@@ -44,19 +44,54 @@ class TipsScreen extends StatelessWidget {
             SizedBox(
               height: getProportionateScreenHeight(50),
             ),
-            FooterTipsWidget(),
+            FooterTipsWidget(
+              ontap: () {
+                Get.defaultDialog(
+                    title: "Running Tips",
+                    titleStyle: TextStyle(fontSize: 20),
+                    middleText: "Running",
+                    textConfirm: "Ok",
+                    onConfirm: () {
+                      Get.back();
+                    });
+              },
+              logo: Icons.directions_run,
+              title: "Running",
+            ),
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
-            FooterTipsWidget(),
+            FooterTipsWidget(
+              logo: Icons.pedal_bike,
+              title: "Cycling",
+              ontap: () {
+                Get.defaultDialog(
+                    title: "Cycling Tips",
+                    titleStyle: TextStyle(fontSize: 20),
+                    middleText: "Cycling",
+                    textConfirm: "Ok",
+                    onConfirm: () {
+                      Get.back();
+                    });
+              },
+            ),
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
-            FooterTipsWidget(),
-            // SizedBox(
-            //   height: getProportionateScreenHeight(20),
-            // ),
-            // ButtonWidget()
+            FooterTipsWidget(
+              logo: Icons.pool,
+              title: "Swimming",
+              ontap: () {
+                Get.defaultDialog(
+                    title: "Swimming Tips",
+                    titleStyle: TextStyle(fontSize: 20),
+                    middleText: "Swimming",
+                    textConfirm: "Okay",
+                    onConfirm: () {
+                      Get.back();
+                    });
+              },
+            ),
           ],
         ),
       ),

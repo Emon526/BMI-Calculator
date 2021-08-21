@@ -6,7 +6,7 @@ import 'package:bmicalculator/screens/home/widget/gendercard.dart';
 import 'package:bmicalculator/screens/home/widget/reusable_card.dart';
 import 'package:bmicalculator/helpers/components/widget/round_icon_button.dart';
 import 'package:bmicalculator/helpers/utils/calculate_bmi.dart';
-import 'package:bmicalculator/screens/info/infoscreen.dart';
+import 'package:bmicalculator/screens/profile/profile.dart';
 import 'package:bmicalculator/screens/result/result_screen.dart';
 import 'package:bmicalculator/screens/tips/tipsscreen.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +33,7 @@ class HomeScreenState extends State<HomeScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => InfoScreen(),
+              builder: (context) => Profile(),
             ),
           );
         },

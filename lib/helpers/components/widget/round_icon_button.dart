@@ -13,7 +13,7 @@ class RoundIconButton extends StatelessWidget {
       elevation: 8,
       child: Icon(
         icon,
-        color: AppColor.unselectedTextColor,
+        color: AppColor.unselectedTextColor.withOpacity(0.7),
       ),
       onPressed: onPressed,
       constraints: BoxConstraints.tightFor(

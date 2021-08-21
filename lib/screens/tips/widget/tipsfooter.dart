@@ -1,27 +1,18 @@
 import 'package:bmicalculator/helpers/color/constants.dart';
 import 'package:bmicalculator/helpers/config/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class FooterTipsWidget extends StatelessWidget {
+  final IconData logo;
+  final String title;
+  final Function ontap;
+
+  FooterTipsWidget(
+      {@required this.logo, @required this.title, @required this.ontap});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Get.defaultDialog(
-            title: "AlertDialog",
-            titleStyle: TextStyle(fontSize: 25),
-            middleText: "Lorem ipsum Doller sit amet.",
-            textCancel: "Cancel",
-            onCancel: () {
-              Get.back();
-            },
-            textConfirm: "Okay",
-            buttonColor: Colors.grey[400],
-            onConfirm: () {
-              Get.back();
-            });
-      },
+      onTap: ontap,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 20),
         padding: EdgeInsets.symmetric(horizontal: 17, vertical: 17),
@@ -55,9 +46,10 @@ class FooterTipsWidget extends StatelessWidget {
                       padding: EdgeInsets.all(18),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(7),
-                          color: Colors.grey[300]),
+                          color:
+                              AppColor.unselectedTextColor.withOpacity(0.08)),
                       child: Icon(
-                        Icons.directions_run,
+                        logo,
                         size: 30,
                       ),
                     ),
@@ -68,7 +60,7 @@ class FooterTipsWidget extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            "Running",
+                            title,
                             style: TextStyle(
                               fontSize: getProportionateScreenWidth(18.0),
                               color:
@@ -87,7 +79,9 @@ class FooterTipsWidget extends StatelessWidget {
               children: [
                 Container(
                   child: IconButton(
-                      onPressed: () {}, icon: Icon(Icons.arrow_forward_ios)),
+                      color: AppColor.iconcolor.withOpacity(0.7),
+                      onPressed: () {},
+                      icon: Icon(Icons.arrow_forward_ios)),
                 )
               ],
             )

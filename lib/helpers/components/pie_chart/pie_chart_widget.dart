@@ -1,5 +1,5 @@
 import 'package:bmicalculator/helpers/color/constants.dart';
-import 'package:bmicalculator/screens/home/pie_chart/pie_chart_paint.dart';
+import 'package:bmicalculator/helpers/components/pie_chart/pie_chart_paint.dart';
 import 'package:flutter/material.dart';
 
 class PieChartWidget extends StatelessWidget {
