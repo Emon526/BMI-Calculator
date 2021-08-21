@@ -1,10 +1,11 @@
 import 'package:bmicalculator/helpers/color/constants.dart';
 import 'package:bmicalculator/helpers/components/appbarbutton.dart';
+import 'package:bmicalculator/helpers/components/pie_chart/pie_chart_widget.dart';
 import 'package:bmicalculator/helpers/components/widget/bottom_button.dart';
 import 'package:bmicalculator/helpers/components/custom_appbar.dart';
-import 'package:bmicalculator/screens/home/widget/pie_chart/pie_chart_widget.dart';
 
 import 'package:bmicalculator/screens/info/infoscreen.dart';
+import 'package:bmicalculator/screens/profile/profile.dart';
 
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,7 @@ class ResultsPage extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => InfoScreen(),
+              builder: (context) => Profile(),
             ),
           );
         },
@@ -100,7 +101,10 @@ class ResultsPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => InfoScreen(),
+                              builder: (context) => InfoScreen(
+                                score: bmiResult,
+                                title: resultText,
+                              ),
                             ),
                           );
                           // Navigator.pop(context);
