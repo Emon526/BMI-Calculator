@@ -18,15 +18,15 @@ class ListCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      height: getProportionateScreenHeight(80),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
             child: Text(
               title,
               style: TextStyle(
-                fontSize: getProportionateScreenWidth(18.0),
+                fontSize: getProportionateScreenWidth(15.0),
                 color: AppColor.unselectedTextColor.withOpacity(0.7),
                 height: 1.25,
               ),
@@ -36,8 +36,9 @@ class ListCard extends StatelessWidget {
               child: Text(
             result.toString(),
             style: TextStyle(
-              fontSize: getProportionateScreenWidth(18.0),
-              color: AppColor.unselectedTextColor.withOpacity(0.9),
+              fontSize: getProportionateScreenWidth(25.0),
+              color: AppColor.buttonbackgroundcolor.withOpacity(0.9),
+              fontWeight: FontWeight.bold,
               height: 1,
             ),
           )),
@@ -46,13 +47,13 @@ class ListCard extends StatelessWidget {
             resultText,
             style: TextStyle(
               fontSize: getProportionateScreenWidth(18.0),
-              color: AppColor.buttonbackgroundcolor,
+              color: AppColor.unselectedTextColor.withOpacity(0.9),
               height: 1.25,
             ),
           )),
         ],
       ),
-      margin: EdgeInsets.only(bottom: 15, top: 15, left: 15, right: 15),
+      margin: EdgeInsets.only(bottom: 15, left: 15, right: 15),
       decoration: BoxDecoration(
         color: colour,
         borderRadius: BorderRadius.circular(10.0),
