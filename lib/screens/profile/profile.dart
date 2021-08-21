@@ -7,27 +7,27 @@ import 'package:flutter/material.dart';
 class Profile extends StatelessWidget {
   final List<Map<String, String>> tips = [
     {
-      " date": "05/july/2019",
-      "result": 'result',
+      " date": "05 july 2019",
+      "result": '18.5',
       "resultText": "Normal",
     },
     {
-      " date": "05/july/2019",
+      " date": "05 july 2019",
       "result": "18.5",
       "resultText": "Normal",
     },
     {
-      " date": "05/july/2019",
+      " date": "05 july 2019",
       "result": "18.5",
       "resultText": "Normal",
     },
     {
-      " date": "05/july/2019",
+      " date": "05 july 2019",
       "result": "18.5",
       "resultText": "Normal",
     },
     {
-      " date": "05/july/2019",
+      " date": "05 july 2019",
       "result": "18.5",
       "resultText": "Normal",
     },
@@ -55,14 +55,13 @@ class Profile extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              flex: 1,
               child: ListView.builder(
                 itemCount: tips.length,
                 itemBuilder: (BuildContext context, int index) => ListCard(
                   colour: AppColor.backgroundcolor,
                   title: tips[index][' date'] ?? '',
                   result: tips[index]['result'] ?? '',
-                  resultText: tips[index]['resulttext'] ?? '',
+                  resultText: tips[index]['resultText'] ?? '',
                 ),
               ),
             ),
