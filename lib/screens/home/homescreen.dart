@@ -2,6 +2,7 @@ import 'package:bmicalculator/helpers/color/constants.dart';
 import 'package:bmicalculator/helpers/components/appbarbutton.dart';
 import 'package:bmicalculator/helpers/components/widget/bottom_button.dart';
 import 'package:bmicalculator/helpers/components/custom_appbar.dart';
+import 'package:bmicalculator/helpers/config/size_config.dart';
 import 'package:bmicalculator/screens/home/widget/gendercard.dart';
 import 'package:bmicalculator/screens/home/widget/reusable_card.dart';
 import 'package:bmicalculator/helpers/components/widget/round_icon_button.dart';
@@ -25,7 +26,7 @@ class HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    SizeConfig().init(context);
     return Scaffold(
       appBar: CustomAppBar(
         onpressed: () {
@@ -53,15 +54,14 @@ class HomeScreenState extends State<HomeScreen> {
       ),
       body: SafeArea(
         child: Container(
-          height: size.height,
-          width: size.width,
           margin: EdgeInsets.only(right: 10, left: 10),
           child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Expanded(child: GenderCard()),
+              Expanded(
+                flex: 3,
+                child: GenderCard(),
+              ),
               Container(
-                height: size.height * .68,
                 child: Row(
                   children: [
                     Expanded(
@@ -72,18 +72,20 @@ class HomeScreenState extends State<HomeScreen> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              SizedBox(height: size.height * 0.015),
+                              SizedBox(
+                                height: getProportionateScreenHeight(10.0),
+                              ),
                               Text(
                                 'Height',
                                 style: TextStyle(
                                   color: AppColor.unselectedTextColor,
-                                  fontSize: size.width * 0.05,
+                                  fontSize: getProportionateScreenHeight(23.0),
                                 ),
                               ),
 
                               //for slider
                               Container(
-                                height: size.height * 0.59,
+                                height: getProportionateScreenHeight(480),
                                 child: SfSlider.vertical(
                                   value: height.toDouble(),
                                   min: 0.0,
@@ -119,37 +121,38 @@ class HomeScreenState extends State<HomeScreen> {
                           ReusableCard(
                             colour: AppColor.backgroundcolor,
                             cardChild: Container(
-                              height: size.height * .30,
+                              height: getProportionateScreenHeight(240.0),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  SizedBox(height: size.height * 0.01),
+                                  SizedBox(
+                                    height: getProportionateScreenHeight(10.0),
+                                  ),
                                   Text(
                                     'Weight',
                                     style: TextStyle(
                                       color: AppColor.unselectedTextColor,
-                                      fontSize: size.width * 0.05,
+                                      fontSize:
+                                          getProportionateScreenHeight(23.0),
                                     ),
                                   ),
-                                  SizedBox(height: size.height * 0.04),
+                                  SizedBox(
+                                    height: getProportionateScreenHeight(25.0),
+                                  ),
                                   Text(
                                     weight.toString(),
                                     style: TextStyle(
-                                        color: AppColor.unselectedTextColor,
-                                        fontSize: 50),
+                                      color: AppColor.unselectedTextColor,
+                                      fontSize:
+                                          getProportionateScreenHeight(60),
+                                    ),
                                   ),
-                                  SizedBox(height: size.height * 0.04),
+                                  SizedBox(
+                                    height: getProportionateScreenHeight(25.0),
+                                  ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
-                                      RoundIconButton(
-                                          icon: FontAwesomeIcons.plus,
-                                          onPressed: () {
-                                            setState(() {
-                                              weight++;
-                                            });
-                                          }),
-                                      SizedBox(width: size.width * 0.04),
                                       RoundIconButton(
                                         icon: FontAwesomeIcons.minus,
                                         onPressed: () {
@@ -158,9 +161,22 @@ class HomeScreenState extends State<HomeScreen> {
                                           });
                                         },
                                       ),
+                                      SizedBox(
+                                        width:
+                                            getProportionateScreenWidth(15.0),
+                                      ),
+                                      RoundIconButton(
+                                          icon: FontAwesomeIcons.plus,
+                                          onPressed: () {
+                                            setState(() {
+                                              weight++;
+                                            });
+                                          }),
                                     ],
                                   ),
-                                  SizedBox(height: size.height * 0.02),
+                                  SizedBox(
+                                    height: getProportionateScreenHeight(20.0),
+                                  ),
                                 ],
                               ),
                             ),
@@ -168,37 +184,38 @@ class HomeScreenState extends State<HomeScreen> {
                           ReusableCard(
                             colour: AppColor.backgroundcolor,
                             cardChild: Container(
-                              height: size.height * 0.29,
+                              height: getProportionateScreenHeight(240.0),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  SizedBox(height: size.height * 0.01),
+                                  SizedBox(
+                                    height: getProportionateScreenHeight(10.0),
+                                  ),
                                   Text(
                                     'Age',
                                     style: TextStyle(
                                       color: AppColor.unselectedTextColor,
-                                      fontSize: size.width * 0.05,
+                                      fontSize:
+                                          getProportionateScreenHeight(23.0),
                                     ),
                                   ),
-                                  SizedBox(height: size.height * 0.04),
+                                  SizedBox(
+                                    height: getProportionateScreenHeight(25.0),
+                                  ),
                                   Text(
                                     age.toString(),
                                     style: TextStyle(
-                                        color: AppColor.unselectedTextColor,
-                                        fontSize: 50),
+                                      color: AppColor.unselectedTextColor,
+                                      fontSize:
+                                          getProportionateScreenHeight(60),
+                                    ),
                                   ),
-                                  SizedBox(height: size.height * 0.04),
+                                  SizedBox(
+                                    height: getProportionateScreenHeight(25.0),
+                                  ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
-                                      RoundIconButton(
-                                          icon: FontAwesomeIcons.plus,
-                                          onPressed: () {
-                                            setState(() {
-                                              age++;
-                                            });
-                                          }),
-                                      SizedBox(width: size.width * 0.04),
                                       RoundIconButton(
                                         icon: FontAwesomeIcons.minus,
                                         onPressed: () {
@@ -209,9 +226,22 @@ class HomeScreenState extends State<HomeScreen> {
                                           );
                                         },
                                       ),
+                                      SizedBox(
+                                        width:
+                                            getProportionateScreenWidth(15.0),
+                                      ),
+                                      RoundIconButton(
+                                          icon: FontAwesomeIcons.plus,
+                                          onPressed: () {
+                                            setState(() {
+                                              age++;
+                                            });
+                                          }),
                                     ],
                                   ),
-                                  SizedBox(height: size.height * 0.02),
+                                  SizedBox(
+                                    height: getProportionateScreenHeight(20.0),
+                                  ),
                                 ],
                               ),
                             ),
@@ -223,10 +253,11 @@ class HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Expanded(
+                flex: 3,
                 child: BottomButton(
                   buttonTitle: 'Let\'s Begin ',
                   style: TextStyle(
-                    fontSize: size.width * 0.05,
+                    fontSize: getProportionateScreenWidth(20),
                     color: AppColor.backgroundcolor,
                   ),
                   onTap: () {
@@ -243,7 +274,7 @@ class HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  width: size.width,
+                  width: getProportionateScreenWidth(812),
                   colour: AppColor.buttonbackgroundcolor,
                 ),
               ),

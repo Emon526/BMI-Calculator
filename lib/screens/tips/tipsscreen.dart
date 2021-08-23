@@ -43,7 +43,6 @@ class TipsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     SizeConfig().init(context);
     return Scaffold(
       backgroundColor: AppColor.backgroundcolor,
@@ -85,28 +84,30 @@ class TipsScreen extends StatelessWidget {
                   title: "Running Tips",
                   titlePadding: EdgeInsets.only(top: 25),
                   titleStyle: TextStyle(
-                      fontSize: 20, color: AppColor.unselectedTextColor),
+                      fontSize: getProportionateScreenWidth(20),
+                      color: AppColor.unselectedTextColor),
                   content: Container(
                     padding: EdgeInsets.all(20),
                     child: Text(
                       runList[randomIndex],
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 18, color: AppColor.unselectedTextColor),
+                          fontSize: getProportionateScreenWidth(18),
+                          color: AppColor.unselectedTextColor),
                     ),
                   ),
                   actions: [
                     BottomButton(
                       buttonTitle: 'Ok',
                       style: TextStyle(
-                        fontSize: size.width * 0.05,
+                        fontSize: getProportionateScreenWidth(20),
                         color: AppColor.selectedTextColor,
                       ),
                       onTap: () {
                         Get.back();
                       },
-                      width: size.width * 0.2,
-                      height: size.height * 0.06,
+                      width: getProportionateScreenWidth(60),
+                      height: getProportionateScreenHeight(60),
                       colour: AppColor.buttonbackgroundcolor,
                     ),
                   ],
@@ -126,28 +127,30 @@ class TipsScreen extends StatelessWidget {
                   title: "Cycling Tips",
                   titlePadding: EdgeInsets.only(top: 25),
                   titleStyle: TextStyle(
-                      fontSize: 20, color: AppColor.unselectedTextColor),
+                      fontSize: getProportionateScreenWidth(20),
+                      color: AppColor.unselectedTextColor),
                   content: Container(
                     padding: EdgeInsets.all(20),
                     child: Text(
                       cycleList[randomIndex],
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 18, color: AppColor.unselectedTextColor),
+                          fontSize: getProportionateScreenWidth(18),
+                          color: AppColor.unselectedTextColor),
                     ),
                   ),
                   actions: [
                     BottomButton(
                       buttonTitle: 'Ok',
                       style: TextStyle(
-                        fontSize: size.width * 0.05,
+                        fontSize: getProportionateScreenWidth(20),
                         color: AppColor.selectedTextColor,
                       ),
                       onTap: () {
                         Get.back();
                       },
-                      width: size.width * 0.2,
-                      height: size.height * 0.06,
+                      width: getProportionateScreenWidth(60),
+                      height: getProportionateScreenHeight(60),
                       colour: AppColor.buttonbackgroundcolor,
                     ),
                   ],
@@ -167,28 +170,30 @@ class TipsScreen extends StatelessWidget {
                   title: "Swimming Tips",
                   titlePadding: EdgeInsets.only(top: 25),
                   titleStyle: TextStyle(
-                      fontSize: 20, color: AppColor.unselectedTextColor),
+                      fontSize: getProportionateScreenWidth(20),
+                      color: AppColor.unselectedTextColor),
                   content: Container(
                     padding: EdgeInsets.all(20),
                     child: Text(
                       swimList[randomIndex],
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 18, color: AppColor.unselectedTextColor),
+                          fontSize: getProportionateScreenWidth(18),
+                          color: AppColor.unselectedTextColor),
                     ),
                   ),
                   actions: [
                     BottomButton(
                       buttonTitle: 'Ok',
                       style: TextStyle(
-                        fontSize: size.width * 0.05,
+                        fontSize: getProportionateScreenWidth(20),
                         color: AppColor.selectedTextColor,
                       ),
                       onTap: () {
                         Get.back();
                       },
-                      width: size.width * 0.2,
-                      height: size.height * 0.06,
+                      width: getProportionateScreenWidth(60),
+                      height: getProportionateScreenHeight(60),
                       colour: AppColor.buttonbackgroundcolor,
                     ),
                   ],

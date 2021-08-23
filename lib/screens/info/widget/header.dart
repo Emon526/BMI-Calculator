@@ -21,7 +21,6 @@ class HeaderWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: AppColor.backgroundcolor,
         borderRadius: BorderRadius.circular(10.0),

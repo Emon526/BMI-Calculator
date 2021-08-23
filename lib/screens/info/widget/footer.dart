@@ -18,7 +18,6 @@ class FooterWidget extends StatelessWidget {
         padding: EdgeInsets.symmetric(
           horizontal: 20,
         ),
-        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           color: AppColor.backgroundcolor,
           borderRadius: BorderRadius.circular(10.0),

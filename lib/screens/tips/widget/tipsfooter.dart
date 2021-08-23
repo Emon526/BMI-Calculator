@@ -16,7 +16,6 @@ class FooterTipsWidget extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 20),
         padding: EdgeInsets.symmetric(horizontal: 17, vertical: 17),
-        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           color: AppColor.backgroundcolor,
           borderRadius: BorderRadius.circular(10.0),

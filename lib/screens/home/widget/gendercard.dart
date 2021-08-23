@@ -1,4 +1,5 @@
 import 'package:bmicalculator/helpers/color/constants.dart';
+import 'package:bmicalculator/helpers/config/size_config.dart';
 import 'package:bmicalculator/screens/home/widget/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -17,8 +18,10 @@ class _GenderCardState extends State<GenderCard> {
   Gender selectedGender;
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    SizeConfig().init(context);
+
     return Container(
+      height: getProportionateScreenHeight(20.0),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -32,7 +35,7 @@ class _GenderCardState extends State<GenderCard> {
                   ? AppColor.buttonbackgroundcolor
                   : AppColor.backgroundcolor,
               cardChild: Container(
-                height: size.height * 0.068,
+                height: getProportionateScreenWidth(50),
                 child: Center(
                   child: Text(
                     "Male",
@@ -40,7 +43,7 @@ class _GenderCardState extends State<GenderCard> {
                       color: selectedGender == Gender.male
                           ? AppColor.selectedTextColor
                           : AppColor.unselectedTextColor,
-                      fontSize: size.width * 0.05,
+                      fontSize: getProportionateScreenWidth(20),
                     ),
                   ),
                 ),
@@ -58,7 +61,7 @@ class _GenderCardState extends State<GenderCard> {
                   ? AppColor.buttonbackgroundcolor
                   : AppColor.backgroundcolor,
               cardChild: Container(
-                height: size.height * 0.068,
+                height: getProportionateScreenWidth(50),
                 child: Center(
                   child: Text(
                     "Female",
@@ -66,7 +69,7 @@ class _GenderCardState extends State<GenderCard> {
                       color: selectedGender == Gender.female
                           ? AppColor.selectedTextColor
                           : AppColor.unselectedTextColor,
-                      fontSize: size.width * 0.05,
+                      fontSize: getProportionateScreenWidth(20),
                     ),
                   ),
                 ),

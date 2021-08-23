@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 class BottomButton extends StatelessWidget {
-  BottomButton(
-      {@required this.onTap,
-      @required this.buttonTitle,
-      @required this.colour,
-      @required this.style,
-      @required this.width,
-      this.height});
+  BottomButton({
+    @required this.onTap,
+    @required this.buttonTitle,
+    @required this.colour,
+    @required this.style,
+    @required this.width,
+    this.height,
+    this.score,
+    this.title,
+  });
 
   final Function onTap;
   final String buttonTitle;
@@ -15,6 +18,8 @@ class BottomButton extends StatelessWidget {
   final TextStyle style;
   final double width;
   final double height;
+  final score;
+  final String title;
 
   @override
   Widget build(BuildContext context) {

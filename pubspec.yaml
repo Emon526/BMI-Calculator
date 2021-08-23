@@ -32,6 +32,7 @@ dependencies:
   get: ^4.3.8
   styled_text: ^3.0.2
   google_fonts: ^2.1.0
+  sqflite: ^2.0.0+3
 
 dev_dependencies:
   flutter_test:
