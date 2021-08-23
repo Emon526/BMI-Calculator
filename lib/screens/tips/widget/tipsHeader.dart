@@ -13,13 +13,11 @@ class TipsHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     SizeConfig().init(context);
 
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: AppColor.backgroundcolor,
         borderRadius: BorderRadius.circular(10.0),
@@ -44,8 +42,8 @@ class TipsHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: size.height * 0.12,
-                width: size.width * 0.25,
+                height: getProportionateScreenHeight(80.0),
+                width: getProportionateScreenWidth(100.0),
                 child: PieChartWidget(
                   text: '',
                   total: 30.0,
@@ -64,8 +62,9 @@ class TipsHeader extends StatelessWidget {
               Text(
                 "Hi Vin!",
                 style: TextStyle(
-                    color: AppColor.unselectedTextColor.withOpacity(0.9),
-                    fontSize: 23),
+                  color: AppColor.unselectedTextColor.withOpacity(0.9),
+                  fontSize: getProportionateScreenWidth(25),
+                ),
               ),
               SizedBox(
                 height: getProportionateScreenHeight(10),
@@ -75,7 +74,7 @@ class TipsHeader extends StatelessWidget {
                   child: Text(
                     "I'm your mentor to give to good tips.",
                     style: TextStyle(
-                      fontSize: 17,
+                      fontSize: getProportionateScreenWidth(15),
                       color: AppColor.unselectedTextColor.withOpacity(0.7),
                     ),
                   )),

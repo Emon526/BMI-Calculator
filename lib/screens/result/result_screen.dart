@@ -3,6 +3,7 @@ import 'package:bmicalculator/helpers/components/appbarbutton.dart';
 import 'package:bmicalculator/helpers/components/pie_chart/pie_chart_widget.dart';
 import 'package:bmicalculator/helpers/components/widget/bottom_button.dart';
 import 'package:bmicalculator/helpers/components/custom_appbar.dart';
+import 'package:bmicalculator/helpers/config/size_config.dart';
 
 import 'package:bmicalculator/screens/info/infoscreen.dart';
 import 'package:bmicalculator/screens/profile/profile.dart';
@@ -19,7 +20,6 @@ class ResultsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: CustomAppBar(
         onpressed: () {
@@ -53,25 +53,22 @@ class ResultsPage extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         margin: EdgeInsets.all(50),
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.5,
-                        // padding: EdgeInsets.all(
-                        //   MediaQuery.of(context).size.height * 0.020,
-                        // ),
                         child: Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
-                                height: size.height * 0.28,
+                                height: getProportionateScreenHeight(230.0),
                                 child: PieChartWidget(
                                   total: 30.0,
                                   used: bmiResult,
                                   text: bmiResult.toString(),
                                 ),
                               ),
-                              SizedBox(height: size.height * 0.07),
+                              SizedBox(
+                                height: getProportionateScreenHeight(70.0),
+                              ),
                               StyledText(
                                 text: " You have  <color> " +
                                     resultText +
@@ -82,7 +79,8 @@ class ResultsPage extends StatelessWidget {
                                   'color': StyledTextTag(
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: size.height * 0.02,
+                                          fontSize:
+                                              getProportionateScreenWidth(15),
                                           color:
                                               AppColor.buttonbackgroundcolor)),
                                 },
@@ -94,7 +92,7 @@ class ResultsPage extends StatelessWidget {
                       BottomButton(
                         buttonTitle: 'Details',
                         style: TextStyle(
-                          fontSize: size.width * 0.05,
+                          fontSize: getProportionateScreenWidth(20),
                           color: AppColor.unselectedTextColor,
                         ),
                         onTap: () {
@@ -109,8 +107,8 @@ class ResultsPage extends StatelessWidget {
                           );
                           // Navigator.pop(context);
                         },
-                        width: size.width * 0.4,
-                        height: size.height * 0.06,
+                        width: getProportionateScreenWidth(150),
+                        height: getProportionateScreenHeight(50),
                         colour: AppColor.backgroundcolor,
                       ),
                     ],

@@ -1,4 +1,5 @@
 import 'package:bmicalculator/helpers/color/constants.dart';
+import 'package:bmicalculator/helpers/config/size_config.dart';
 
 import 'package:flutter/material.dart';
 
@@ -17,12 +18,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }) : super(key: key);
 
   @override
-  Size get preferredSize => Size.fromHeight(80.0);
+  Size get preferredSize => Size.fromHeight(60.0);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 30, left: 30),
+      margin: EdgeInsets.only(right: 30, left: 30, top: 5),
       child: AppBar(
         backgroundColor: backgroundcolor,
         centerTitle: true,
@@ -31,7 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
               color: AppColor.titleTextColor,
-              fontSize: 20,
+              fontSize: getProportionateScreenWidth(20),
               fontStyle: FontStyle.normal),
         ),
         leading: leading,
