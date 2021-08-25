@@ -8,10 +8,10 @@ class FooterWidget extends StatelessWidget {
     String normalNumber = "18.5 to 24.9";
     String normalText = "Normal";
     String underwidgetNumber = "Less then 18.5";
-    String underwidgetText = "Underwidget";
+    String underwidgetText = "Underweight";
     String overwidgetNumber = "25 to 29.9";
-    String overwigetText = "Overwidget";
-    String obesityNumber = "25 to 29.9";
+    String overwigetText = "Overweight";
+    String obesityNumber = "Greater than 29.9";
     String obesityText = "Obesity";
     return Container(
         margin: EdgeInsets.symmetric(horizontal: 20),
@@ -54,6 +54,7 @@ class FooterWidget extends StatelessWidget {
                   Text(
                     normalText,
                     style: TextStyle(
+                      fontWeight: FontWeight.w500,
                       fontSize: getProportionateScreenWidth(18.0),
                       color: AppColor.unselectedTextColor,
                     ),
@@ -82,6 +83,7 @@ class FooterWidget extends StatelessWidget {
                   Text(
                     underwidgetText,
                     style: TextStyle(
+                      fontWeight: FontWeight.w500,
                       fontSize: getProportionateScreenWidth(18.0),
                       color: AppColor.unselectedTextColor,
                     ),
@@ -111,6 +113,7 @@ class FooterWidget extends StatelessWidget {
                   Text(
                     overwigetText,
                     style: TextStyle(
+                      fontWeight: FontWeight.w500,
                       fontSize: getProportionateScreenWidth(18.0),
                       color: AppColor.unselectedTextColor,
                     ),
@@ -139,6 +142,7 @@ class FooterWidget extends StatelessWidget {
                   Text(
                     obesityText,
                     style: TextStyle(
+                      fontWeight: FontWeight.w500,
                       fontSize: getProportionateScreenWidth(18.0),
                       color: AppColor.unselectedTextColor,
                     ),

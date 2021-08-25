@@ -10,23 +10,27 @@ class ListCard extends StatelessWidget {
     @required this.colour,
     @required this.note,
     @required this.index,
+    @required this.noteId,
   }) : super(key: key);
 
   final Color colour;
 
   final Note note;
   final int index;
+  final int noteId;
+
   @override
   Widget build(BuildContext context) {
     final time = DateFormat.yMMMd().format(note.createdTime);
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 20),
       alignment: Alignment.center,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: getProportionateScreenWidth(110),
+            width: getProportionateScreenWidth(120),
             child: Text(
               time,
               style: TextStyle(
@@ -37,26 +41,32 @@ class ListCard extends StatelessWidget {
             ),
           ),
           Container(
-              width: getProportionateScreenWidth(70),
-              child: Text(
-                note.number.toString(),
-                style: TextStyle(
-                  fontSize: getProportionateScreenWidth(25),
-                  color: AppColor.buttonbackgroundcolor.withOpacity(0.9),
-                  fontWeight: FontWeight.bold,
-                  height: 1,
+              width: getProportionateScreenWidth(50),
+              child: Center(
+                child: Text(
+                  note.number.toString(),
+                  style: TextStyle(
+                    fontSize: getProportionateScreenWidth(25),
+                    color: AppColor.buttonbackgroundcolor.withOpacity(0.9),
+                    fontWeight: FontWeight.bold,
+                    height: 1,
+                  ),
                 ),
               )),
-          Container(
-              width: getProportionateScreenWidth(100),
-              child: Text(
-                note.title,
-                style: TextStyle(
-                  fontSize: getProportionateScreenWidth(18),
-                  color: AppColor.unselectedTextColor.withOpacity(0.9),
-                  height: 1.25,
-                ),
-              )),
+          Expanded(
+            child: Container(
+                width: getProportionateScreenWidth(120),
+                child: Center(
+                  child: Text(
+                    note.title,
+                    style: TextStyle(
+                      fontSize: getProportionateScreenWidth(18),
+                      color: AppColor.unselectedTextColor.withOpacity(0.9),
+                      height: 1.25,
+                    ),
+                  ),
+                )),
+          ),
         ],
       ),
       margin: EdgeInsets.only(bottom: 15, left: 15, right: 15),

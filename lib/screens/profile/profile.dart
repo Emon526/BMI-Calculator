@@ -11,6 +11,12 @@ import 'package:bmicalculator/screens/profile/card.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
+  final int noteId;
+
+  const Profile({
+    Key key,
+    this.noteId,
+  }) : super(key: key);
   @override
   _ProfileState createState() => _ProfileState();
 }
@@ -113,10 +119,28 @@ class _ProfileState extends State<Profile> {
         itemBuilder: (context, index) {
           final note = notes[index];
 
-          return ListCard(
-            note: note,
-            index: index,
-            colour: AppColor.backgroundcolor,
+          return Dismissible(
+            direction: DismissDirection.startToEnd,
+            background: Container(
+              color: AppColor.buttonbackgroundcolor,
+              child: Icon(
+                Icons.delete,
+                color: AppColor.backgroundcolor.withOpacity(0.7),
+                size: 35,
+              ),
+            ),
+            key: Key(notes[index].id.toString()),
+            onDismissed: (direction) {
+              NotesDatabase.instance.delete(notes[index].id);
+              print("deleted");
+              refreshNotes();
+            },
+            child: ListCard(
+              note: note,
+              index: index,
+              noteId: note.id,
+              colour: AppColor.backgroundcolor,
+            ),
           );
         },
       );
