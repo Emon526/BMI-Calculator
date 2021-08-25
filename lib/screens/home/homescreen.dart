@@ -269,7 +269,6 @@ class HomeScreenState extends State<HomeScreen> {
                         builder: (context) => ResultsPage(
                           bmiResult: calc.calculateBMI(),
                           resultText: calc.getResult(),
-                          // interpretation: calc.getInterpretation(),
                         ),
                       ),
                     );

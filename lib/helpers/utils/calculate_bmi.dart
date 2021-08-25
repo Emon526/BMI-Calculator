@@ -10,26 +10,29 @@ class BmiLogic {
 
   double calculateBMI() {
     _bmi = weight / pow(height / 100, 2);
+    if (_bmi >= 30) {
+      return _bmi = 30.0;
+    }
+    print(_bmi);
+
     return _bmi.floorToDouble();
   }
 
   String getResult() {
-    if (_bmi >= 25) {
+    if (_bmi < 18.5) {
+      print('underweight');
+      return 'Underweight';
+    } else if (_bmi >= 18.5 && _bmi <= 24.9) {
+      print('normal');
+      return 'Normal';
+    } else if (_bmi >= 25 && _bmi <= 29.9) {
+      print('overweight');
       return 'Overweight ';
-    } else if (_bmi > 18.5) {
-      return 'Normal ';
+    } else if (_bmi >= 30.0) {
+      print('Obesity');
+      return 'Obesity';
     } else {
-      return 'Underweight ';
-    }
-  }
-
-  String getInterpretation() {
-    if (_bmi >= 25) {
-      return 'You have a higher than Normal body weight !';
-    } else if (_bmi >= 18.5) {
-      return 'You have Normal body weight !';
-    } else {
-      return 'You have a lower than normal body weight !';
+      return 'Calculation Error';
     }
   }
 }

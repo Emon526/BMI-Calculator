@@ -50,6 +50,7 @@ class FooterTipsWidget extends StatelessWidget {
                       child: Icon(
                         logo,
                         size: 30,
+                        color: AppColor.unselectedTextColor.withOpacity(0.9),
                       ),
                     ),
                     SizedBox(
