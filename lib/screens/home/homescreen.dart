@@ -1,4 +1,5 @@
 import 'package:bmicalculator/helpers/color/constants.dart';
+import 'package:bmicalculator/helpers/components/Interstitialad.dart';
 import 'package:bmicalculator/helpers/components/appbarbutton.dart';
 import 'package:bmicalculator/helpers/components/widget/bottom_button.dart';
 import 'package:bmicalculator/helpers/components/custom_appbar.dart';
@@ -24,6 +25,8 @@ class HomeScreenState extends State<HomeScreen> {
   int weight = 60;
   int age = 20;
 
+  InterstialAd interstialAd = new InterstialAd();
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -31,6 +34,8 @@ class HomeScreenState extends State<HomeScreen> {
       appBar: CustomAppBar(
         onpressed: () {
           print("pressed");
+          interstialAd.createInterad();
+          interstialAd.showInterad();
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -261,6 +266,9 @@ class HomeScreenState extends State<HomeScreen> {
                     color: AppColor.backgroundcolor,
                   ),
                   onTap: () {
+                    interstialAd.createInterad();
+                    interstialAd.showInterad();
+
                     BmiLogic calc = BmiLogic(height: height, weight: weight);
 
                     Navigator.push(
