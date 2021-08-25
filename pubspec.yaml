@@ -33,6 +33,7 @@ dependencies:
   styled_text: ^3.0.2
   google_fonts: ^2.1.0
   sqflite: ^2.0.0+3
+  google_mobile_ads: ^0.13.0
 
 dev_dependencies:
   flutter_test:

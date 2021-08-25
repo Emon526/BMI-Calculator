@@ -74,8 +74,10 @@ class InfoScreen extends StatelessWidget {
                 color: AppColor.backgroundcolor,
               ),
               onTap: () {
+                final snackBar = SnackBar(content: Text('Result Saved'));
                 addNote();
                 print("save preseed");
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 Navigator.push(
                   context,
                   MaterialPageRoute(

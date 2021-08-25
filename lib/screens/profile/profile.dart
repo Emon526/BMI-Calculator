@@ -1,5 +1,6 @@
 import 'package:bmicalculator/helpers/color/constants.dart';
 import 'package:bmicalculator/helpers/components/appbarbutton.dart';
+import 'package:bmicalculator/helpers/components/banner.dart';
 import 'package:bmicalculator/helpers/components/custom_appbar.dart';
 import 'package:bmicalculator/helpers/components/widget/bottom_button.dart';
 import 'package:bmicalculator/helpers/config/size_config.dart';
@@ -7,7 +8,6 @@ import 'package:bmicalculator/helpers/utils/db/notes_database.dart';
 import 'package:bmicalculator/helpers/utils/model/note.dart';
 import 'package:bmicalculator/screens/home/homescreen.dart';
 import 'package:bmicalculator/screens/profile/card.dart';
-
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
@@ -106,6 +106,7 @@ class _ProfileState extends State<Profile> {
                             SizedBox(
                               height: getProportionateScreenHeight(100),
                             ),
+                            Bannerad(),
                           ],
                         ),
                       )
@@ -114,34 +115,46 @@ class _ProfileState extends State<Profile> {
         ),
       );
 
-  Widget buildNotes() => ListView.builder(
-        itemCount: notes.length,
-        itemBuilder: (context, index) {
-          final note = notes[index];
+  Widget buildNotes() => Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: notes.length,
+              itemBuilder: (context, index) {
+                final note = notes[index];
 
-          return Dismissible(
-            direction: DismissDirection.startToEnd,
-            background: Container(
-              color: AppColor.buttonbackgroundcolor,
-              child: Icon(
-                Icons.delete,
-                color: AppColor.backgroundcolor.withOpacity(0.7),
-                size: 35,
-              ),
+                return Dismissible(
+                  direction: DismissDirection.startToEnd,
+                  background: Container(
+                    color: AppColor.buttonbackgroundcolor,
+                    child: Icon(
+                      Icons.delete,
+                      color: AppColor.backgroundcolor.withOpacity(0.7),
+                      size: 35,
+                    ),
+                  ),
+                  key: Key(notes[index].id.toString()),
+                  onDismissed: (direction) {
+                    final snackBar = SnackBar(content: Text('Deleted'));
+                    NotesDatabase.instance.delete(notes[index].id);
+                    print("deleted");
+                    refreshNotes();
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  },
+                  child: ListCard(
+                    note: note,
+                    index: index,
+                    noteId: note.id,
+                    colour: AppColor.backgroundcolor,
+                  ),
+                );
+              },
             ),
-            key: Key(notes[index].id.toString()),
-            onDismissed: (direction) {
-              NotesDatabase.instance.delete(notes[index].id);
-              print("deleted");
-              refreshNotes();
-            },
-            child: ListCard(
-              note: note,
-              index: index,
-              noteId: note.id,
-              colour: AppColor.backgroundcolor,
-            ),
-          );
-        },
+          ),
+          Bannerad(),
+          SizedBox(
+            height: getProportionateScreenHeight(10),
+          ),
+        ],
       );
 }

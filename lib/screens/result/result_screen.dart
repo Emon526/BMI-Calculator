@@ -1,3 +1,4 @@
+import 'package:bmicalculator/helpers/components/banner.dart';
 import 'package:bmicalculator/helpers/color/constants.dart';
 import 'package:bmicalculator/helpers/components/appbarbutton.dart';
 import 'package:bmicalculator/helpers/components/pie_chart/pie_chart_widget.dart';
@@ -67,7 +68,7 @@ class ResultsPage extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: getProportionateScreenHeight(70.0),
+                                height: getProportionateScreenHeight(50.0),
                               ),
                               StyledText(
                                 text: " You have  <color> " +
@@ -88,6 +89,10 @@ class ResultsPage extends StatelessWidget {
                             ],
                           ),
                         ),
+                      ),
+                      Bannerad(),
+                      SizedBox(
+                        height: getProportionateScreenHeight(50.0),
                       ),
                       BottomButton(
                         buttonTitle: 'Details',
